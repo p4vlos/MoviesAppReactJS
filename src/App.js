@@ -88,7 +88,7 @@ class App extends Component {
           paddingTop: 8,
           paddingBottom: 8,
           paddingLeft: 16
-        }} placeholder="Enter search term"/>
+        }} onChange={this.searchChangeHandler.bind(this)} placeholder="Enter search term"/>
 
         {this.state.rows}
 
