@@ -13,17 +13,25 @@ class App extends Component {
       {id: 1, poster_src: "https://image.tmdb.org/t/p/w185/cezWGskPY5x7GaglTTRN4Fugfb8.jpg",
        title: "	The Avengers", overview: "This is my second overview"},
     ]
-
-    this.state = {rows: [
-      <p key="1">This is my row 0</p>,
-      <p key="2">This is my row 1</p>,
-      <p key="3">This is my row 2</p>
-    ]}
     
     var movieRows = []
     movies.forEach((movie) => {
       console.log(movie.id)
-      movieRows.push(<p key={movie.id}>{movie.title}</p>)
+
+      const movieRow = <table key={movie.id}>
+        <tbody>
+          <tr>
+            <td>
+              <img alt="poster" width="120" src={movie.poster_src}/>
+            </td>
+            <td>
+              {movie.title}
+              <p>{movie.overview}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      movieRows.push(movieRow)
     })
 
     this.state = {rows: movieRows}
@@ -31,8 +39,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-      
+      <div>
         <table className="titleBar">
           <tbody>
             <tr>
